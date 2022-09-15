@@ -26,8 +26,8 @@ function render(leads) {
         listItems += 
         //create a template string with ` string, use ${function} to escape the `
         `<div class="eLink" id="${[i]}">
+        <button class="deleteThis" onclick="deleteThis(this)"> &#8722; </button>
             <a target='_blank' href='${leads[i]}'>${leads[i]}</a>
-            <button class="deleteThis" onclick="deleteThis(this)"><i class="fas fa-minus"></i></button>
         </div>
         `
     }
