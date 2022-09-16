@@ -3,6 +3,5 @@ This is a chrome extension project. Part of Scrimba's learn JavaScript for free 
 https://scrimba.com/playlist/pPD7Kt4
 
 ## Improvement
-- add a function to delete each entry
-- add category to sort entry
-- export entry to a text file. 
+✔ add a function to delete each entry <br>
+⬜ export or share entry
