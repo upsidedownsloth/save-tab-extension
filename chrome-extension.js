@@ -3,8 +3,8 @@
 let items = [] //current link items
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
-// const ulEl = document.getElementById("ul-el")
-const ulEl = document.getElementById("link-list")
+const ulEl = document.getElementById("ul-el")
+// const ulEl = document.getElementById("link-list")
 const deleteBtn = document.getElementById("delete-btn")
 const saveBtn = document.getElementById("tab-btn")
 
@@ -25,22 +25,29 @@ function render(leads) {
     for (let i = 0; i < leads.length; i++) {
         listItems += 
         //create a template string with ` string, use ${function} to escape the `
-        `<div class="eLink" id="${[i]}">
-        <button class="deleteThis" onclick="deleteThis(this)"> &#8722; </button>
+        `<li class="eLink" id="${[i]}">
+        <button class="deleteThis" id="del_${i}"> &#8722; </button>
             <a target='_blank' href='${leads[i]}'>${leads[i]}</a>
-        </div>
+        </li>
         `
     }
     //this.parentElement.id give the div id
     //using .innerHTML here instead of .textContent so that <li> will be rendered as HTML not text     
     // .innetHTML (DOM manipulation) comes with a cost. Should do it outside the loop
     ulEl.innerHTML = listItems
+    
+    let delThisBtn = document.getElementsByClassName('deleteThis')
+    for(delbtn of delThisBtn){
+        delbtn.addEventListener("click", function(){
+            console.log(this)
+            deleteThis(this)
+        })
+    }
 }
 
 //addEventListernet, passing in the event "click"
 inputBtn.addEventListener("click", addURL)
 inputEl.addEventListener("keyup", function(e){
-    let mLink = inputEl.value
     if(e.key == "Enter"){
       addURL()
     }
@@ -74,13 +81,13 @@ function addURL(){
         // localStorage only works with string, here is turing the array to string
         //                   (   Key   , Value             )
         localStorage.setItem("items", JSON.stringify(items))
-
         render(items)
     }
 }
 
-function deleteThis(thisId){
-    let rmLink = thisId.parentElement.id
+
+function deleteThis(el){
+    let rmLink = el.parentElement.id
     let rmDiv = document.getElementById(rmLink) // this work fine
     items.splice(rmLink, 1) //remove from rmLink index
     rmDiv.parentNode.removeChild(rmDiv) //remove DOM
