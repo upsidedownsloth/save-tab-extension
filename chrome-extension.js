@@ -1,7 +1,8 @@
 //define btn properties here to get element by id from HTML and use addEventListerner to evoke a function when the button is click.
 // can remove js function from HTML and leave a cleaner code in HTML
 let items = [] //current link items
-const inputEl = document.getElementById("input-el")
+const inputURL = document.getElementById("input-URL-el")
+const inputTitle = document.getElementById("input-Title-el")
 const saveInputBtn = document.getElementById("save-input-btn")
 const ulEl = document.getElementById("ul-el")
 // const ulEl = document.getElementById("link-list")
@@ -46,7 +47,7 @@ function render(leads) {
 
 //addEventListernet, passing in the event "click"
 saveInputBtn.addEventListener("click", addURL)
-inputEl.addEventListener("keyup", function(e){
+inputURL.addEventListener("keyup", function(e){
     if(e.key == "Enter"){
       addURL()
     }
@@ -72,10 +73,10 @@ deleteAllBtn.addEventListener("dblclick", function(){
 
 function addURL(){
     //push new input to the items array
-    if(inputEl.value != ""){
-        items.push(inputEl.value)
+    if(inputURL.value != ""){
+        items.push(inputURL.value)
         //empty the input field after push
-        inputEl.value = ""
+        inputURL.value = ""
         // save items array to localStorage
         // localStorage only works with string, here is turing the array to string
         //                   (   Key   , Value             )
