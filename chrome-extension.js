@@ -2,11 +2,11 @@
 // can remove js function from HTML and leave a cleaner code in HTML
 let items = [] //current link items
 const inputEl = document.getElementById("input-el")
-const inputBtn = document.getElementById("input-btn")
+const saveInputBtn = document.getElementById("save-input-btn")
 const ulEl = document.getElementById("ul-el")
 // const ulEl = document.getElementById("link-list")
-const deleteBtn = document.getElementById("delete-btn")
-const saveBtn = document.getElementById("tab-btn")
+const deleteAllBtn = document.getElementById("delete-all-btn")
+const saveTabBtn = document.getElementById("save-tab-btn")
 
 //get the leads from the local storage
 const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"))
@@ -39,21 +39,20 @@ function render(leads) {
     let delThisBtn = document.getElementsByClassName('deleteThis')
     for(delbtn of delThisBtn){
         delbtn.addEventListener("click", function(){
-            console.log(this)
             deleteThis(this)
         })
     }
 }
 
 //addEventListernet, passing in the event "click"
-inputBtn.addEventListener("click", addURL)
+saveInputBtn.addEventListener("click", addURL)
 inputEl.addEventListener("keyup", function(e){
     if(e.key == "Enter"){
       addURL()
     }
 })
 
-saveBtn.addEventListener("click", function(){
+saveTabBtn.addEventListener("click", function(){
     //grabbing url from the current tab
     // this code will only work when live as an extension
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
@@ -63,7 +62,7 @@ saveBtn.addEventListener("click", function(){
     })
 })
 
-deleteBtn.addEventListener("dblclick", function(){
+deleteAllBtn.addEventListener("dblclick", function(){
     localStorage.clear()
     //setting items back to empty
     items = []
