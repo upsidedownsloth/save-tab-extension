@@ -66,7 +66,8 @@ saveTabBtn.addEventListener("click", function(){
     //grabbing url from the current tab
     // this code will only work when live as an extension
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-        items.push(tabs[0].url)
+        // items.push(tabs[0].url)
+        items.push(new SiteDetails(tabs[0].url, tabs[0].title))
         localStorage.setItem("items", JSON.stringify(items))
         render(items)
     })
