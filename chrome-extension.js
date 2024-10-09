@@ -2,15 +2,22 @@
 // can remove js function from HTML and leave a cleaner code in HTML
 let items = [] //current link items
 const inputURL = document.getElementById("input-URL-el")
-const inputTitle = document.getElementById("input-Title-el")
+const inputTitle = document.getElementById("input-title-el")
 const saveInputBtn = document.getElementById("save-input-btn")
 const ulEl = document.getElementById("ul-el")
 // const ulEl = document.getElementById("link-list")
 const deleteAllBtn = document.getElementById("delete-all-btn")
 const saveTabBtn = document.getElementById("save-tab-btn")
+const inputWarning = document.getElementById("input-warning")
 
 //get the leads from the local storage
 const itemsFromLocalStorage = JSON.parse(localStorage.getItem("items"))
+
+// object constructor
+function SiteDetails(url, title){
+    this.url = url
+    this.title = title
+}
 
 // check if leads is empthy, if not run the code
 if (itemsFromLocalStorage) {
@@ -21,14 +28,14 @@ if (itemsFromLocalStorage) {
 
 // render function now have a better reusability by passing parameters when called
 // now the function has no direct relationship with items global variable. The relationship will only created when the function is called with items as its parameter
-function render(leads) {
+function render(list) {
     let listItems = ""
-    for (let i = 0; i < leads.length; i++) {
+    for (let i = 0; i < list.length; i++) {
         listItems += 
         //create a template string with ` string, use ${function} to escape the `
         `<li class="eLink" id="${[i]}">
         <button class="deleteThis" id="del_${i}"> &#8722; </button>
-            <a target='_blank' href='${leads[i]}'>${leads[i]}</a>
+            <a target='_blank' href='${list[i].url}'>${list[i].title}</a>
         </li>
         `
     }
@@ -46,10 +53,11 @@ function render(leads) {
 }
 
 //addEventListernet, passing in the event "click"
-saveInputBtn.addEventListener("click", addURL)
+// saveInputBtn.addEventListener("click", console.log(inputURL.value, inputTitle.value))
+saveInputBtn.addEventListener("click", (e) => {addURL(inputURL.value, inputTitle.value)})
 inputURL.addEventListener("keyup", function(e){
     if(e.key == "Enter"){
-      addURL()
+      addURL(inputURL.value, inputTitle.value)
     }
 })
 
@@ -71,18 +79,23 @@ deleteAllBtn.addEventListener("dblclick", function(){
     render(items)
 })
 
-function addURL(){
+function addURL(url, title){
     //push new input to the items array
-    if(inputURL.value != ""){
-        items.push(inputURL.value)
-        //empty the input field after push
+    if(inputURL.value != "" && inputTitle != ""){
+        inputWarning.classList.add("hidden")
+        items.push(new SiteDetails(url, title))
+        //empty the input fields after push
         inputURL.value = ""
+        inputTitle.value = ""
         // save items array to localStorage
         // localStorage only works with string, here is turing the array to string
         //                   (   Key   , Value             )
         localStorage.setItem("items", JSON.stringify(items))
         render(items)
+    }else{
+        inputWarning.classList.remove("hidden")
     }
+    
 }
 
 

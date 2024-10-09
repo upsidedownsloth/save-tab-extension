@@ -72,3 +72,12 @@ a {
     background-color: #b61818;
     color: #fff;
 }
+
+.hidden {
+    display: none;
+}
+
+.input-warning {
+    color: red;
+    font-size: x-small;
+}
