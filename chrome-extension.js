@@ -53,12 +53,13 @@ function render(list) {
 }
 
 //addEventListernet, passing in the event "click"
-// saveInputBtn.addEventListener("click", console.log(inputURL.value, inputTitle.value))
 saveInputBtn.addEventListener("click", (e) => {addURL(inputURL.value, inputTitle.value)})
-inputURL.addEventListener("keyup", function(e){
-    if(e.key == "Enter"){
-      addURL(inputURL.value, inputTitle.value)
-    }
+document.querySelectorAll("input").forEach((element) => {
+    element.addEventListener("keyup", function(e){
+        if(e.key == "Enter"){
+          addURL(inputURL.value, inputTitle.value)
+        }
+    });
 })
 
 saveTabBtn.addEventListener("click", function(){
@@ -81,7 +82,7 @@ deleteAllBtn.addEventListener("dblclick", function(){
 
 function addURL(url, title){
     //push new input to the items array
-    if(inputURL.value != "" && inputTitle != ""){
+    if(inputURL.value != "" && inputTitle.value != ""){
         inputWarning.classList.add("hidden")
         items.push(new SiteDetails(url, title))
         //empty the input fields after push
