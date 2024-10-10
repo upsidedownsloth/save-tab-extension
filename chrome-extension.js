@@ -31,7 +31,7 @@ function render(list) {
         listItems += 
         //create a template string with ` string, use ${function} to escape the `
         `<li class="eLink" id="${[i]}">
-        <span class="material-symbols-outlined deleteThis" id="del_${i}">remove</span>
+        <span class="material-symbols-outlined deleteThis" id="del_${i}" aria-label="delete"> </span>
             <a target='_blank' href='${list[i].url}'>${list[i].title}</a>
         </li>
         `

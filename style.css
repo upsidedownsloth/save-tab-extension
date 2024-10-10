@@ -75,11 +75,17 @@ ul {
     margin-top: 2px;
     box-shadow: none;
     top: 0;
+    &::before{
+        content: 'remove';
+    }
 }
 
 .deleteThis:hover{
-    font-weight: bolder;
     cursor: pointer;
+    font-weight: bolder;
+    &::before{
+        content: 'close';
+    }
 }
 
 .hidden {
