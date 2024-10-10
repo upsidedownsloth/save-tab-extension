@@ -52,6 +52,7 @@ ul {
 
 .eLink {
     display: flex;
+    align-items: center;
     margin-top: 10px;
     box-sizing: border-box;
     width: 100%;
