@@ -6,3 +6,10 @@ https://scrimba.com/playlist/pPD7Kt4
 - add a function to delete each entry
 - add category to sort entry
 - export entry to a text file. 
+
+## Version control
+| Version | Chanage Details |
+|---------|-----------------|
+|v1       | Initial commit  |
+|v1.1     | Add a function to delete each entry|
+|v2       | Add a function to grab site's URL and title|
