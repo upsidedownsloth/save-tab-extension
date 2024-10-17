@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <title> </title>
 </head>
 <body>
-    <input type="text" id="input-el">
-    <button id="input-btn">SAVE INPUT</button>
-    <button id="tab-btn">SAVE TAB</button>
-    <button id="delete-btn" title="double click to delete">DELETE ALL</button>
+    <input type="text" id="input-URL-el" placeholder="URL..." class="input">
+    <input type="text" id="input-title-el" placeholder="Title..." class="input">
+    <span class="input-warning hidden" id="input-warning"><p>You need to add both URL and Title</p></span>
+    <button id="save-tab-btn">SAVE TAB</button>
+    <button id="save-input-btn">SAVE INPUT</button>
+    <button id="delete-all-btn" title="double click to delete">DELETE ALL</button>
     <!-- <div id="link-list"></div> -->
     <ul id="ul-el"></ul>
     <script src="chrome-extension.js"></script>

@@ -29,12 +29,19 @@ button {
 
 button:hover{
     cursor: pointer;
+    border-color: #4557bd;
 }
 
-#delete-btn {
+#delete-all-btn {
     background: white;
     color: #4459d4;
     border: 2px solid #4459d4;
+}
+
+#delete-all-btn:hover{
+    color: #b61818;
+    box-shadow: 5px 5px #b61818;
+    border: 2px solid #b61818;
 }
 
 ul {
@@ -44,6 +51,8 @@ ul {
 }
 
 .eLink {
+    display: flex;
+    align-items: center;
     margin-top: 10px;
     box-sizing: border-box;
     width: 100%;
@@ -53,22 +62,37 @@ ul {
     box-shadow: 2px 2px #4557bd;
 }
 
-a {
+.eLink a {
     color: #4b64f1;
 }
 
+
 .deleteThis {
-    font-size: 1rem;
+    font-size: 1.15rem;
     color: #b61818;
     background-color: transparent;
-    border: 2px solid #b61818;
-    padding: 0px 6px;
-    margin: 0px 5px 0px 0px;
+    padding: 0px 5px;
+    margin-top: 2px;
     box-shadow: none;
     top: 0;
+    &::before{
+        content: 'remove';
+    }
 }
 
 .deleteThis:hover{
-    background-color: #b61818;
-    color: #fff;
+    cursor: pointer;
+    font-weight: bolder;
+    &::before{
+        content: 'close';
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.input-warning {
+    color: red;
+    font-size: x-small;
 }

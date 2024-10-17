@@ -8,4 +8,12 @@ https://scrimba.com/playlist/pPD7Kt4
 
 ## Improvement
 ✔ add a function to delete each entry <br>
-⬜ export or share entry
+✔ list tab title instead of links <br>
+⬜export entry to a text file. 
+
+## Version 
+| Version | Change Details |
+|---------|-----------------|
+|v1       | Initial commit  |
+|v1.1     | Add a function to delete each entry|
+|v2       | Add a function to grab site's URL and title|
