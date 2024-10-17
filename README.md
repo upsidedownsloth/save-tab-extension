@@ -3,12 +3,12 @@ This is a chrome extension project. Part of Scrimba's learn JavaScript for free 
 https://scrimba.com/playlist/pPD7Kt4
 
 ## Improvement
-- add a function to delete each entry
-- add category to sort entry
-- export entry to a text file. 
+✔ add a function to delete each entry <br>
+✔ list tab title instead of links <br>
+⬜export entry to a text file. 
 
-## Version control
-| Version | Chanage Details |
+## Version 
+| Version | Change Details |
 |---------|-----------------|
 |v1       | Initial commit  |
 |v1.1     | Add a function to delete each entry|
